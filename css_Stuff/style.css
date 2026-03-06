@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+
+:root {
+  --black:   #08103f;
+  --white:   #FFFFFF;
+  --cyan:    #eaf1f1;
+  --red:     #FF5555;
+  --gray:    #AAAAAA;
+  --blue:    #0000AA;
+  --yellow:  #72c4eb;
+  --darkblue: #000077;
+}
+
+:root {
+  --scanline-opacity: 0.3;  
+}
+
+#app {
+  --scanline-opacity: 0.01;  
+}
+
+/*Base reset + scanline*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--blue);
+  color: var(--white);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  line-height: 1.8;
+}
+
+/* Scanline overlay — sits on top of everything */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(0, 0, 0, var(--scanline-opacity)) 2px,
+    rgba(0, 0, 0, var(--scanline-opacity)) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+
+/*BootScreen*/
+#boot-screen {
+  position: fixed;
+  inset: 0;
+  background: var(--black);
+  padding: 40px 60px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#boot-screen p {
+  color: var(--gray);
+  font-size: 9px;
+}
+
+#enter-btn {
+    display: none;
+  margin-top: 24px;
+  width: fit-content;
+  background: var(--black);
+  color: var(--cyan);
+  border: 2px solid var(--cyan);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  padding: 10px 10px;
+  cursor: pointer;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { border-color: var(--yellow); color: var(--yellow); }
+}
+
+/*Menu bar*/
+#menu-bar {
+  background: var(--black);
+  padding: 10px 24px;
+  border-bottom: 3px solid var(--cyan);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+#menu-bar a {
+  color: var(--cyan);
+  text-decoration: none;
+  margin-right: 9px;
+  font-size: 4px 8px;
+}
+
+
+#menu-bar nav {
+  display: flex;
+  gap: 20px;
+}
+
+#menu-bar a:hover {
+  color: var(--black);
+  background: var(--cyan);
+}
+
+
+#desktop {
+  background: var(--black);
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  min-height: calc(100vh - 80px);
+}
+
+#ibm-logo {
+    height: 28px;
+    width: auto;
+    filter: brightness(0.6);
+}
+
+section {
+  max-width: 960px;
+  margin: 40px auto;
+  border: 2px solid var(--cyan);
+}
+
+.dos-windows-header {
+  border: 3px solid var(--cyan);
+  background: var(--black);
+  display: flex;
+  flex-direction: column;
+}
+
+#status-bar {
+  background: var(--cyan);
+  color: var(--black);
+  padding: 6px 16px;
+  border-top: 3px solid var(--white);
+  display: flex;
+  gap: 32px;
+  font-size: 9px;
+}
+
+.section-body {
+  background: var(--darkblue);
+  padding: 32px;
+  font-size: 9px;
+  line-height: 2.2;
+  color: var(--white);
+}
+
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 12px;
+  background: var(--cyan);
+  animation: blink 1s step-end infinite;
+  vertical-align: middle;
+}
+

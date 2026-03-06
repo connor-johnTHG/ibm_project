@@ -1,0 +1,13 @@
+#app {
+  display: none;
+}
+
+#boot-screen {
+  transition: opacity 0.1s;
+}
+
+#app {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.8s ease-in;
+}

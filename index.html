@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>An IBM Website</title>
+
+    <link rel="stylesheet" href="css_Stuff/style.css">
+    <link rel="stylesheet" href="css_Stuff/app.css">
+</head>
+<body>
+    <div id="boot-screen">
+        <button id="enter-btn">PRESS ENTER</button>
+    </div>
+
+    <div id="app">
+        <!-- keeps the retro menu bar -->
+        <header id="menu-bar">
+            <nav>
+            <a href="#history">HISTORY</a>
+            <a href="#products">PRODUCTS</a>
+            <a href="#specs">SPECS</a>
+            <a href="#demo">DEMO</a>
+            <a href="#facts">FACTS</a>
+            </nav>
+            <img src="pics/ibmLogo.png" alt="IBM Logo" id="ibm-logo">
+        </header>
+
+        <!-- hero — full width, big statement -->
+        <section id="hero">
+            <div class="dos-window-header">
+            <span>WELCOME</span>
+            </div>
+            <div class="section-body">
+            <h1>IBM: The Machine That Changed Everything</h1>
+            <p>A fan tribute to the company that built the modern world.</p>
+            </div>
+        </section>
+
+        <!-- history timeline -->
+        <section id="history">
+            <div class="dos-window-header">
+            <span>HISTORY.EXE</span>
+            </div>
+            <div class="section-body">
+            <div class="timeline">
+                <div class="timeline-entry">
+                <span class="year">1911</span>
+                <div class="timeline-content">
+                    <h3>IBM Founded</h3>
+                    <h4>Founded from the merge of three companies:</h4>
+                    <ul>
+                        <li>    The Tabulating Machine Company</li>
+                        <li>    Computing Scale Company</li>
+                        <li>    International Time Recording Company.</li>
+                    </ul>
+                    <p></p>
+                    <p>|</p>
+                    <p>|</p>
+                    <p>|</p>
+                    <p>|</p>
+                </div>
+                </div>
+                <!-- more entries -->
+            </div>
+            </div>
+        </section>
+
+        <!-- notable products with photos -->
+        <section id="products">
+            <div class="dos-window-header">
+            <span>PRODUCTS.EXE</span>
+            </div>
+            <div class="section-body">
+            <div class="product-grid">
+                <div class="product-card">
+                <img src="ibm-pc.jpg" alt="IBM PC 5150">
+                <h3>IBM PC 5150</h3>
+                <p>...</p>
+                </div>
+                <!-- more cards -->
+            </div>
+            </div>
+        </section>
+
+        <!-- hardware specs -->
+        <section id="specs">
+            <div class="dos-window-header">
+            <span>SPECS.EXE</span>
+            </div>
+            <div class="section-body">
+            <table class="spec-table">
+                <tr><td>CPU</td><td>Intel 8088 @ 4.77MHz</td></tr>
+                <!-- more rows -->
+            </table>
+            </div>
+        </section>
+
+        <!-- interactive demo -->
+        <section id="demo">
+            <div class="dos-window-header">
+            <span>DEMO.EXE</span>
+            </div>
+            <div class="section-body">
+            <pre id="terminal-output"></pre>
+            <input type="text" id="terminal-input" placeholder="TYPE A COMMAND...">
+            <button id="run-btn">RUN</button>
+            </div>
+        </section>
+
+        <!-- fun facts -->
+        <section id="facts">
+            <div class="dos-window-header">
+            <span>FUNFACTS.EXE</span>
+            </div>
+            <div class="section-body">
+            <div class="facts-grid">
+                <div class="fact-card">
+                <span class="fact-number">01</span>
+                <p>...</p>
+                </div>
+                <!-- more facts -->
+            </div>
+            </div>
+        </section>
+
+        <footer id="status-bar">
+            <span>C:\IBM\TRIBUTE></span>
+            <span id="clock"></span>
+        </footer>
+
+</div>
+<script src="js-Stuff/boot.js"></script>
+</body>
+</html>

@@ -31,17 +31,17 @@ async function runBoot() {
   hwLine.textContent = "Checking hardware..";
   await delay(500);
   hwLine.textContent = "Checking hardware...";
-  await delay(800);
+  await delay(600);
   hwLine.textContent = "Checking hardware... OK";
-  hwLine.style.color = 'var(--cyan)';
+  hwLine.style.color = 'rgb(238, 238, 8)';
 
-  await delay(500);
-  addLine("Keyboard OK");
   await delay(400);
+  addLine("Keyboard OK");
+  await delay(300);
   addLine("Display adapter OK");
   await delay(400);
   addLine("Loading IBM TRIBUTE...");
-  await delay(600);
+  await delay(700);
 
   enterBtn.style.display = 'block';
 }

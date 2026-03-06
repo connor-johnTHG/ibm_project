@@ -1,32 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-
+/* ── COLORS ── */
 :root {
-  --black:   #08103f;
-  --white:   #FFFFFF;
-  --cyan:    #eaf1f1;
-  --red:     #FF5555;
-  --gray:    #AAAAAA;
-  --blue:    #0000AA;
-  --yellow:  #72c4eb;
+  --black:    #08103f;
+  --cyan:     #eaf1f1;
+  --red:      #FF5555;
+  --gray:     #AAAAAA;
+  --blue:     #0000AA;
+  --yellow:   #0000AA;
   --darkblue: #000077;
+  --scanline-opacity: 0.3; /* heavy on boot screen */
 }
 
-:root {
-  --scanline-opacity: 0.3;  
-}
-
+/* eases up scanlines once main page is visible */
 #app {
-  --scanline-opacity: 0.01;  
+  --scanline-opacity: 0;
 }
 
-/*Base reset + scanline*/
+/* ── RESET ── removes default browser spacing on everything */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* ── BODY ── base styles for the whole page */
 body {
   background: var(--blue);
   color: var(--white);
@@ -35,7 +33,7 @@ body {
   line-height: 1.8;
 }
 
-/* Scanline overlay — sits on top of everything */
+/* ── SCANLINES ── a stripe pattern layered over the whole page */
 body::before {
   content: '';
   position: fixed;
@@ -44,15 +42,14 @@ body::before {
     to bottom,
     transparent 0px,
     transparent 3px,
-    rgba(0, 0, 0, var(--scanline-opacity)) 2px,
+    rgba(0, 0, 0, var(--scanline-opacity)) 3px,
     rgba(0, 0, 0, var(--scanline-opacity)) 4px
   );
-  pointer-events: none;
-  z-index: 9999;
+  pointer-events: none; /* lets you click through it */
+  z-index: 9999;        /* sits on top of everything */
 }
 
-
-/*BootScreen*/
+/* ── BOOT SCREEN ── covers the whole screen on load */
 #boot-screen {
   position: fixed;
   inset: 0;
@@ -65,88 +62,96 @@ body::before {
 }
 
 #boot-screen p {
-  color: var(--gray);
+  color: white;
   font-size: 9px;
 }
 
+/* hidden by default, JS shows it after boot lines finish */
 #enter-btn {
-    display: none;
+  display: none;
   margin-top: 24px;
   width: fit-content;
-  background: var(--black);
-  color: var(--cyan);
+  background: white;
+  color: var(--yellow);
   border: 2px solid var(--cyan);
   font-family: 'Press Start 2P', monospace;
   font-size: 10px;
-  padding: 10px 10px;
+  padding: 8px;
   cursor: pointer;
   animation: blink 1s step-end infinite;
+}
+
+#enter-btn:hover {
+  background: white;
+  color: var(--yellow);
 }
 
 @keyframes blink {
   50% { border-color: var(--yellow); color: var(--yellow); }
 }
 
-/*Menu bar*/
+/* ── MENU BAR ── sticky bar at the top of the main page */
 #menu-bar {
   background: var(--black);
   padding: 10px 24px;
   border-bottom: 3px solid var(--cyan);
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* pushes nav left, logo right */
   align-items: center;
-position: sticky;
+  position: sticky;
   top: 0;
   z-index: 100;
 }
-
-#menu-bar a {
-  color: var(--cyan);
-  text-decoration: none;
-  margin-right: 9px;
-  font-size: 4px 8px;
-}
-
 
 #menu-bar nav {
   display: flex;
   gap: 20px;
 }
 
-#menu-bar a:hover {
-  color: var(--black);
-  background: var(--cyan);
+#menu-bar a {
+  color: var(--cyan);
+  text-decoration: none;
+  font-size: 9px;
+  padding: 4px 8px;
 }
 
-
-#desktop {
-  background: var(--black);
-  padding: 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  min-height: calc(100vh - 80px);
+#menu-bar a:hover {
+  color: var(--black);
+  background: rgb(238, 238, 8);
 }
 
 #ibm-logo {
-    height: 28px;
-    width: auto;
-    filter: brightness(0.6);
+  height: 28px;
+  width: auto;
+  filter: brightness(0.6);
 }
 
+/* ── SECTIONS ── each content block on the main page */
 section {
   max-width: 960px;
-  margin: 40px auto;
+  margin: 40px auto; /* centers it and adds space above/below */
   border: 2px solid var(--cyan);
 }
 
-.dos-windows-header {
-  border: 3px solid var(--cyan);
-  background: var(--black);
-  display: flex;
-  flex-direction: column;
+/* the cyan title bar at the top of each section */
+.dos-window-header {
+  background: var(--cyan);
+  color: var(--black);
+  padding: 8px 16px;
+  font-size: 9px;
+  border-bottom: 2px solid var(--white);
 }
 
+/* the content area inside each section */
+.section-body {
+  background: var(--darkblue);
+  padding: 32px;
+  font-size: 9px;
+  line-height: 2.2;
+  color: white;
+}
+
+/* ── STATUS BAR ── pinned to the bottom of the page */
 #status-bar {
   background: var(--cyan);
   color: var(--black);
@@ -157,14 +162,7 @@ section {
   font-size: 9px;
 }
 
-.section-body {
-  background: var(--darkblue);
-  padding: 32px;
-  font-size: 9px;
-  line-height: 2.2;
-  color: var(--white);
-}
-
+/* ── CURSOR ── blinking block used in the terminal demo */
 .cursor {
   display: inline-block;
   width: 8px;
@@ -173,4 +171,3 @@ section {
   animation: blink 1s step-end infinite;
   vertical-align: middle;
 }
-

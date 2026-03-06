@@ -58,3 +58,20 @@ enterBtn.addEventListener('click', () => {
     app.style.opacity = '1';
   }, 50);
 });
+
+enterBtn.addEventListener('click', handleEnter);
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    handleEnter();
+  }
+});
+
+function handleEnter() {
+  bootScreen.style.display = 'none';
+  const app = document.getElementById('app');
+  app.style.display = 'block';
+  setTimeout(() => {
+    app.style.opacity = '1';
+  }, 50);
+}

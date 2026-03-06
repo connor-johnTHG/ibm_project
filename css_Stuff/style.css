@@ -11,6 +11,7 @@
   --orange:   #FF6600;  /* highlight color */
   --white:    #FFE4A0;  /* soft warm white, easier on eyes */
   --gray:     #8B7040;  /* muted warm gray */
+  --yellow:   #eeb90a;
 }
 
 /* ── RESET ── removes default browser spacing on everything */
@@ -60,6 +61,22 @@ body {
   );
   pointer-events: none;
   z-index: 9999;
+}
+
+#boot-logo {
+  position: absolute;
+  top: 50%;
+  left: 60%;                       
+  transform: translate(-50%, -50%);
+  width: 400px;                     
+  opacity: 0;
+  animation: logoFadeIn 2s ease-in forwards;
+  filter: brightness(0) saturate(100%) invert(50%) sepia(100%) saturate(500%) hue-rotate(0deg) brightness(1.2); 
+}
+
+@keyframes logoFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 0.15; }          
 }
 
 /* ── BOOT SCREEN ── covers the whole screen on load */
@@ -136,6 +153,17 @@ body {
 #ibm-logo {
   height: 28px;
   width: auto;
+}
+
+.productPics {
+  width: 200px;
+  height: auto;
+  border: 2px solid var(--orange);
+}
+
+.productPics:hover {
+  border-color: var(--yellow);
+  transform: scale(1.1);
 }
 
 /* ── SECTIONS ── each content block on the main page */

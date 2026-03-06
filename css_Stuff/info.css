@@ -1,0 +1,31 @@
+.timeline-content h3 {
+  color: var(--cyan);
+  margin-bottom: 8px;
+}
+
+.timeline-content p {
+  color: var(--gray);
+  margin-bottom: 8px;
+}
+
+.timeline-content ul {
+  list-style: none; 
+  padding-left: 16px;
+}
+
+.timeline-content ul li {
+  color: white;
+  margin-bottom: 6px;
+}
+
+.timeline-content ul li::before {
+  content: '> ';  
+  color: yellow;
+}
+
+#ibm-main {
+  width: 300px;        
+  display: block;
+  margin: 0 auto;      
+  margin-bottom: 24px;
+}

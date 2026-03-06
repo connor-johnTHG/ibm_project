@@ -16,32 +16,32 @@ function delay(ms) {
 
 async function runBoot() {
   await delay(300);
-  addLine("IBM PC Compatible BIOS v2.1");
+  addLine("> IBM PC Compatible BIOS v2.1");
   await delay(400);
-  addLine("Copyright (C) 1984 IBM Corp.");
+  addLine("> Copyright (C) 1984 IBM Corp.");
   await delay(400);
-  addLine("640K Base Memory OK");
+  addLine("> 640K Base Memory OK");
   await delay(600);
 
   // --- hardware check with dots ---
-  const hwLine = addLine("Checking hardware...");
+  const hwLine = addLine("> Checking hardware...");
   await delay(500);
-  hwLine.textContent = "Checking hardware.";
+  hwLine.textContent = "> Checking hardware.";
   await delay(500);
-  hwLine.textContent = "Checking hardware..";
+  hwLine.textContent = "> Checking hardware..";
   await delay(500);
-  hwLine.textContent = "Checking hardware...";
+  hwLine.textContent = "> Checking hardware...";
   await delay(600);
-  hwLine.textContent = "Checking hardware... OK";
-  hwLine.style.color = 'rgb(238, 238, 8)';
+  hwLine.textContent = "> Checking hardware... OK";
+  hwLine.style.color = '#FFB000';
 
+  await delay(500);
+  addLine("> Keyboard OK");
   await delay(400);
-  addLine("Keyboard OK");
-  await delay(300);
-  addLine("Display adapter OK");
+  addLine("> Display adapter OK");
   await delay(400);
-  addLine("Loading IBM TRIBUTE...");
-  await delay(700);
+  addLine("> Loading IBM TRIBUTE...");
+  await delay(500);
 
   enterBtn.style.display = 'block';
 }

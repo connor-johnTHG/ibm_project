@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="css_Stuff/style.css">
     <link rel="stylesheet" href="css_Stuff/app.css">
+    <link rel="stylesheet" href="css_Stuff/info.css">
 </head>
 <body>
     <div id="boot-screen">
@@ -17,13 +18,14 @@
         <!-- keeps the retro menu bar -->
         <header id="menu-bar">
             <nav>
+            <a href="#overview">INTRO</a>
             <a href="#history">HISTORY</a>
             <a href="#products">PRODUCTS</a>
             <a href="#specs">SPECS</a>
             <a href="#demo">DEMO</a>
             <a href="#facts">FACTS</a>
             </nav>
-            <img src="pics/ibmLogo.png" alt="IBM Logo" id="ibm-logo">
+            <img src="pics/ibmMain.png" alt="IBM Logo" id="ibm-logo">
         </header>
 
         <!-- hero — full width, big statement -->
@@ -33,7 +35,38 @@
             </div>
             <div class="section-body">
             <h1>IBM: The Machine That Changed Everything</h1>
-            <p>A fan tribute to the company that built the modern world.</p>
+            <h2>A tribute to the company that built the modern world.</h2>
+            </div>
+        </section>
+        <div id="mainPic">
+            <img src="pics/ibmMain.png" id="ibm-main">
+        </div>
+
+        <section id="overview">
+            <div class="dos-window-header">
+            <span>INTRO.EXE</span>
+            </div>
+            <div class="section-body">
+                <div class="overview">
+                    <h2 id="meetIBM">Meet IBM</h2>
+                    <h3> International Business Machines — the company that basically invented the modern office. Founded way back in 1911,
+                        IBM spent decades building the machines that ran the world's biggest businesses, governments, and research labs.
+                        From punch card tabulators to room-sized mainframes, if something important was being calculated in the 20th century,
+                        chances are an IBM machine was doing it. By the time the 1980s rolled around, IBM had already put a man on the moon,
+                        helped run the US census, and built the systems that kept the world's banks from going haywire — not bad for a company
+                        that started out making scales and clocks!
+                    </h3>
+                    <br>
+                    <h3>
+                        Then in 1981, IBM did something that changed everything — they released the IBM Personal Computer,
+                        the PC 5150, and suddenly computing wasn't just for corporations and scientists anymore. It was for
+                        everyone. Your dad, your neighbor, your local travel agent. IBM didn't just make a computer — they
+                        accidentally invented the blueprint that every Windows machine since has been built on. Love your
+                        laptop? Thank IBM. Use a spreadsheet at work? Thank IBM. The whole idea of a personal computer sitting
+                        on a desk being useful to a regular human being? That was IBM's gift to the world — and they gave it to
+                        us wearing a suit and a smile."
+                    </h3>
+                </div>
             </div>
         </section>
 
@@ -43,26 +76,15 @@
             <span>HISTORY.EXE</span>
             </div>
             <div class="section-body">
-            <div class="timeline">
-                <div class="timeline-entry">
-                <span class="year">1911</span>
-                <div class="timeline-content">
-                    <h3>IBM Founded</h3>
-                    <h4>Founded from the merge of three companies:</h4>
-                    <ul>
-                        <li>    The Tabulating Machine Company</li>
-                        <li>    Computing Scale Company</li>
-                        <li>    International Time Recording Company.</li>
-                    </ul>
-                    <p></p>
-                    <p>|</p>
-                    <p>|</p>
-                    <p>|</p>
-                    <p>|</p>
+                <div class="timeline">
+                    <div class="timeline-entry">
+                    <span class="year">1911</span>
+                    <div class="timeline-content">
+                        <h3>IBM Founded</h3>
+                    </div>
+                    </div>
+                    <!-- more entries -->
                 </div>
-                </div>
-                <!-- more entries -->
-            </div>
             </div>
         </section>
 
@@ -74,8 +96,8 @@
             <div class="section-body">
             <div class="product-grid">
                 <div class="product-card">
-                <img src="ibm-pc.jpg" alt="IBM PC 5150">
-                <h3>IBM PC 5150</h3>
+                <img src="pics/ibmPC.png" alt="IBM pc">
+                <h3>IBM 701</h3>
                 <p>...</p>
                 </div>
                 <!-- more cards -->
@@ -102,9 +124,9 @@
             <span>DEMO.EXE</span>
             </div>
             <div class="section-body">
-            <pre id="terminal-output"></pre>
+            <!-- <pre id="terminal-output"></pre>
             <input type="text" id="terminal-input" placeholder="TYPE A COMMAND...">
-            <button id="run-btn">RUN</button>
+            <button id="run-btn">RUN</button> -->
             </div>
         </section>
 

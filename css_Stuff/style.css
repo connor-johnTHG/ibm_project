@@ -1,20 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
 /* ── COLORS ── */
 :root {
-  --black:    #08103f;
-  --cyan:     #eaf1f1;
-  --red:      #FF5555;
-  --gray:     #AAAAAA;
-  --blue:     #0000AA;
-  --yellow:   #0000AA;
-  --darkblue: #000077;
-  --scanline-opacity: 0.3; /* heavy on boot screen */
-}
-
-/* eases up scanlines once main page is visible */
-#app {
-  --scanline-opacity: 0;
+  --black:    #050A1A;  /* deep black-blue background */
+  --darkblue: #0A1428;  /* slightly lighter for section bodies */
+  --blue:     #0D1F3C;  /* for borders and subtle contrast */
+  --amber:    #FFB000;  /* main text + accents */
+  --amber-dim: #A67000; /* dimmer amber for secondary text */
+  --orange:   #FF6600;  /* highlight color */
+  --white:    #FFE4A0;  /* soft warm white, easier on eyes */
+  --gray:     #8B7040;  /* muted warm gray */
 }
 
 /* ── RESET ── removes default browser spacing on everything */
@@ -26,15 +22,17 @@
 
 /* ── BODY ── base styles for the whole page */
 body {
-  background: var(--blue);
-  color: var(--white);
+  background: var(--black);
+  color: var(--amber);
   font-family: 'Press Start 2P', monospace;
   font-size: 10px;
   line-height: 1.8;
 }
 
-/* ── SCANLINES ── a stripe pattern layered over the whole page */
-body::before {
+
+
+/* scanlines only on boot screen */
+#boot-screen::before {
   content: '';
   position: fixed;
   inset: 0;
@@ -42,11 +40,26 @@ body::before {
     to bottom,
     transparent 0px,
     transparent 3px,
-    rgba(0, 0, 0, var(--scanline-opacity)) 3px,
-    rgba(0, 0, 0, var(--scanline-opacity)) 4px
+    rgba(0, 0, 0, 0.3) 3px,
+    rgba(0, 0, 0, 0.3) 4px
   );
-  pointer-events: none; /* lets you click through it */
-  z-index: 9999;        /* sits on top of everything */
+  pointer-events: none;
+  z-index: 9999;
+}
+
+#app::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(0, 0, 0, 0.1) 3px,
+    rgba(0, 0, 0, 0.1) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
 }
 
 /* ── BOOT SCREEN ── covers the whole screen on load */
@@ -71,9 +84,9 @@ body::before {
   display: none;
   margin-top: 24px;
   width: fit-content;
-  background: white;
-  color: var(--yellow);
-  border: 2px solid var(--cyan);
+  color: var(--amber);
+  background-color: var(--darkblue);
+  border: 2px solid var(--amber);
   font-family: 'Press Start 2P', monospace;
   font-size: 10px;
   padding: 8px;
@@ -82,19 +95,19 @@ body::before {
 }
 
 #enter-btn:hover {
-  background: white;
-  color: var(--yellow);
+  background: var(--amber);
+  color: var(--black);
 }
 
 @keyframes blink {
-  50% { border-color: var(--yellow); color: var(--yellow); }
+  50% { border-color: var(--orange); color: var(--orange); }
 }
 
 /* ── MENU BAR ── sticky bar at the top of the main page */
 #menu-bar {
   background: var(--black);
   padding: 10px 24px;
-  border-bottom: 3px solid var(--cyan);
+  border-bottom: 3px solid var(--amber);
   display: flex;
   justify-content: space-between; /* pushes nav left, logo right */
   align-items: center;
@@ -109,7 +122,7 @@ body::before {
 }
 
 #menu-bar a {
-  color: var(--cyan);
+  color: var(--amber);
   text-decoration: none;
   font-size: 9px;
   padding: 4px 8px;
@@ -117,46 +130,52 @@ body::before {
 
 #menu-bar a:hover {
   color: var(--black);
-  background: rgb(238, 238, 8);
+  background: var(--amber);
 }
 
 #ibm-logo {
   height: 28px;
   width: auto;
-  filter: brightness(0.6);
 }
 
 /* ── SECTIONS ── each content block on the main page */
 section {
   max-width: 960px;
   margin: 40px auto; /* centers it and adds space above/below */
-  border: 2px solid var(--cyan);
+  border: 2px solid var(--amber-dim);
 }
 
 /* the cyan title bar at the top of each section */
 .dos-window-header {
-  background: var(--cyan);
+  background: var(--amber);
   color: var(--black);
   padding: 8px 16px;
   font-size: 9px;
-  border-bottom: 2px solid var(--white);
+  border-bottom: 2px solid var(--orange);
 }
+
+#meetIBM {
+  color: white;
+}
+
+
 
 /* the content area inside each section */
 .section-body {
   background: var(--darkblue);
-  padding: 32px;
-  font-size: 9px;
-  line-height: 2.2;
-  color: white;
+  font-family: 'Share Tech Mono', monospace;
+  padding: 30px;
+  font-size: 11px;
+  line-height: 3;
+  color: var(--white);
 }
 
 /* ── STATUS BAR ── pinned to the bottom of the page */
 #status-bar {
-  background: var(--cyan);
-  color: var(--black);
+  background: var(--black);
+  color: var(--amber);
   padding: 6px 16px;
-  border-top: 3px solid var(--white);
+  border-top: 3px solid var(--amber-dim);
   display: flex;
   gap: 32px;
   font-size: 9px;

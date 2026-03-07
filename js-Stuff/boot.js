@@ -40,9 +40,16 @@ async function runBoot() {
   await delay(400);
   addLine("> Display adapter OK");
   await delay(400);
-  addLine("> Loading IBM TRIBUTE...");
-  await delay(500);
 
+  const loadLine = addLine("> Loading IBM.EXE");
+  await delay(400);
+  loadLine.textContent = "> Loading IBM.EXE.";
+  await delay(400);
+  loadLine.textContent = "> Loading IBM.EXE..";
+  await delay(400);
+  loadLine.textContent = "> Loading IBM.EXE...";
+  await delay(400);
+  loadLine.style.color = '#FFB000'
   enterBtn.style.display = 'block';
 }
 

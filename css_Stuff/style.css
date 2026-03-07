@@ -218,3 +218,35 @@ section {
   animation: blink 1s step-end infinite;
   vertical-align: middle;
 }
+
+.timeline-divider {
+  color: var(--orange);
+  text-align: center;
+  margin: 20px 0;
+  font-family: 'Press Start 2p', monospace;
+  font-size: 8px;
+  letter-spacing: 2px;
+}
+
+.section-body .timeline-content p{
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: white;
+}
+
+.section-body .timeline-entry .year{
+  display: block;
+  text-align: center;
+  text-emphasis: var(--orange);
+  font-weight: bold;
+}
+
+.section-body .timeline-content h3{
+  text-align: center;
+  font-size: 15px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  color: var(--yellow);
+}

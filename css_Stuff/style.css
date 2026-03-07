@@ -112,12 +112,12 @@ body {
 }
 
 #enter-btn:hover {
-  background: var(--amber);
+  background: var(--orange);
   color: var(--black);
 }
 
 @keyframes blink {
-  50% { border-color: var(--orange); color: var(--orange); }
+  50% { border-color: var(--yellow); color: var(--white); }
 }
 
 /* ── MENU BAR ── sticky bar at the top of the main page */

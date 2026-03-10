@@ -33,7 +33,7 @@ async function runBoot() {
   hwLine.textContent = "> Checking hardware...";
   await delay(600);
   hwLine.textContent = "> Checking hardware... OK";
-  hwLine.style.color = '#FFB000';
+  hwLine.style.color = '#36ff04';
 
   await delay(500);
   addLine("> Keyboard OK");
@@ -49,7 +49,7 @@ async function runBoot() {
   await delay(400);
   loadLine.textContent = "> Loading IBM.EXE...";
   await delay(400);
-  loadLine.style.color = '#FFB000'
+  loadLine.style.color = '#36ff04'
   enterBtn.style.display = 'block';
 }
 

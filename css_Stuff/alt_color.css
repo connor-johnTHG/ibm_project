@@ -3,15 +3,13 @@
 
 /* ── COLORS ── */
 :root {
-  --black:    #050A1A;  /* deep black-blue background */
-  --darkblue: #0A1428;  /* slightly lighter for section bodies */
-  --blue:     #0D1F3C;  /* for borders and subtle contrast */
-  --amber:    #FFB000;  /* main text + accents */
-  --amber-dim: #A67000; /* dimmer amber for secondary text */
-  --orange:   #FF6600;  /* highlight color */
-  --white:    #FFE4A0;  /* soft warm white, easier on eyes */
-  --gray:     #8B7040;  /* muted warm gray */
-  --yellow:   #eeb90a;
+  --ibm-blue: #0d0dc9;      /* that classic IBM bright blue */
+  --ibm-dark: #040b16;      /* near black for contrast */
+  --ibm-gray: #a4a7ac;   
+  --diff-gray: #404040;   /* the muted gray for panels */
+  --ibm-white: #ffffff;     /* text */
+  --ibm-yellow: #ebdc07;    /* IBM yellow accent */
+  --ibm-cyan: #05c5ff;      /* highlight */
 }
 
 /* ── RESET ── removes default browser spacing on everything */
@@ -23,8 +21,8 @@
 
 /* ── BODY ── base styles for the whole page */
 body {
-  background: var(--black);
-  color: var(--amber);
+  background: var(--ibm-blue);
+  color: var(--ibm-gray);
   font-family: 'Press Start 2P', monospace;
   font-size: 10px;
   line-height: 1.8;
@@ -71,19 +69,19 @@ body {
   width: 400px;                     
   opacity: 0;
   animation: logoFadeIn 2s ease-in forwards;
-  filter: brightness(0) saturate(100%) invert(50%) sepia(100%) saturate(500%) hue-rotate(0deg) brightness(1.2); 
+   filter: brightness(10) contrast(1);
 }
 
 @keyframes logoFadeIn {
   from { opacity: 0; }
-  to   { opacity: 0.90; }          
+  to   { opacity: 1; }          
 }
 
 /* ── BOOT SCREEN ── covers the whole screen on load */
 #boot-screen {
   position: fixed;
   inset: 0;
-  background: var(--black);
+  background: var(--ibm-blue);
   padding: 40px 60px;
   z-index: 100;
   display: flex;
@@ -101,30 +99,32 @@ body {
   display: none;
   margin-top: 24px;
   width: fit-content;
-  color: var(--amber);
-  background-color: var(--darkblue);
-  border: 2px solid var(--amber);
+  color: #000000;
+  background-color: var(--ibm-gray);
+  border: none;
+  border-right: 3px solid var(--diff-gray);
+  border-bottom: 3px solid var(--diff-gray);
+  border-left: 3px solid var(--ibm-white);
+  border-top: 3px solid var(--ibm-white);
   font-family: 'Press Start 2P', monospace;
-  font-size: 10px;
-  padding: 8px;
-  cursor: pointer;
-  animation: blink 1s step-end infinite;
+  font-size: 9px;
+  padding: 6px 10px
 }
 
 #enter-btn:hover {
-  background: var(--orange);
-  color: var(--black);
+    border-right: 3px solid var(--ibm-white);
+    border-bottom: 3px solid var(--ibm-white);
+    border-left: 3px solid var(--diff-gray);
+    border-top: 3px solid var(--diff-gray);
+    background-color: #8a8d91;
 }
 
-@keyframes blink {
-  50% { border-color: var(--yellow); color: var(--white); }
-}
 
 /* ── MENU BAR ── sticky bar at the top of the main page */
 #menu-bar {
-  background: var(--black);
+  background: var(--ibm-gray);
   padding: 10px 24px;
-  border-bottom: 3px solid var(--amber);
+  border-bottom: 3px solid var(--ibm-white);
   display: flex;
   justify-content: space-between; /* pushes nav left, logo right */
   align-items: center;
@@ -139,15 +139,16 @@ body {
 }
 
 #menu-bar a {
-  color: var(--amber);
+  color: var(--ibm-dark);
   text-decoration: none;
   font-size: 9px;
   padding: 4px 8px;
 }
 
 #menu-bar a:hover {
-  color: var(--black);
-  background: var(--amber);
+  color: var(--ibm-white);
+  background: var(--ibm-cyan);
+  border-color: 2px solid var(--ibm-white);
 }
 
 #ibm-logo {
@@ -158,11 +159,11 @@ body {
 .productPics {
   width: 200px;
   height: auto;
-  border: 2px solid var(--orange);
+  border: 2px solid var(--ibm-white);
 }
 
 .productPics:hover {
-  border-color: var(--yellow);
+  border-color: var(--ibm-yellow);
   transform: scale(1.1);
 }
 
@@ -170,40 +171,41 @@ body {
 section {
   max-width: 960px;
   margin: 40px auto; /* centers it and adds space above/below */
-  border: 2px solid var(--amber-dim);
+  border: 2px solid var(--ibm-gray);
 }
 
-/* the cyan title bar at the top of each section */
+/* title bar at the top of each section */
 .dos-window-header {
-  background: var(--amber);
-  color: var(--black);
+  background: var(--ibm-gray);
+  color: var(--ibm-white);
   padding: 8px 16px;
   font-size: 9px;
-  border-bottom: 2px solid var(--orange);
+  border-bottom: 3px solid var(--ibm-yellow);
 }
 
 #meetIBM {
-  color: white;
+  color: var(--ibm-dark);
 }
 
 
 
 /* the content area inside each section */
 .section-body {
-  background: var(--darkblue);
+  background: var(--ibm-gray);
   font-family: 'Share Tech Mono', monospace;
   padding: 30px;
   font-size: 11px;
   line-height: 3;
-  color: var(--white);
+  color: var(--ibm-dark);
+  background-color: var(--ibm-white);
 }
 
 /* ── STATUS BAR ── pinned to the bottom of the page */
 #status-bar {
-  background: var(--black);
-  color: var(--amber);
+  background: var(--ibm-gray);
+  color: var(--ibm-blue);
   padding: 6px 16px;
-  border-top: 3px solid var(--amber-dim);
+  border-top: 3px solid var(--ibm-dark);
   display: flex;
   gap: 32px;
   font-size: 9px;
@@ -214,18 +216,19 @@ section {
   display: inline-block;
   width: 8px;
   height: 12px;
-  background: var(--cyan);
+  background: var(--ibm-dark);
   animation: blink 1s step-end infinite;
   vertical-align: middle;
 }
 
 .timeline-divider {
-  color: var(--orange);
+  color: var(--ibm-dark);
   text-align: center;
   margin: 20px 0;
   font-family: 'Press Start 2p', monospace;
-  font-size: 8px;
+  font-size: 10px;
   letter-spacing: 2px;
+  font-weight: bold;
 }
 
 .section-body .timeline-content p{
@@ -233,13 +236,13 @@ section {
   font-size: 13px;
   letter-spacing: 2px;
   font-weight: bold;
-  color: white;
+  color: var(--ibm-blue);
 }
 
 .section-body .timeline-entry .year{
   display: block;
   text-align: center;
-  text-emphasis: var(--orange);
+  text-emphasis: var(--ibm-blue);
   font-weight: bold;
 }
 
@@ -248,7 +251,7 @@ section {
   font-size: 15px;
   letter-spacing: 2px;
   font-weight: bold;
-  color: var(--yellow);
+  color: var(--ibm-dark);
 }
 
 html {

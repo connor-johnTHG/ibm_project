@@ -251,6 +251,30 @@ section {
   color: var(--yellow);
 }
 
+#history-body {
+    max-height: 800px;
+    overflow: hidden;
+    transition: max-height 0.6s ease;
+}
+
+#history-body.open {
+    max-height: 5000px;
+}
+
+#history-toggle-bar {
+    background: var(--darkblue);
+    border-top: 1px solid var(--amber-dim);
+    text-align: right;
+    padding: 6px 16px;
+    cursor: pointer;
+}
+
+#history-toggle {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    color: var(--amber);
+}
+
 html {
   scroll-behavior: smooth;
 }

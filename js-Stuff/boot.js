@@ -82,3 +82,11 @@ function handleEnter() {
     app.style.opacity = '1';
   }, 50);
 }
+
+var historyToggle = document.getElementById('history-toggle');
+var historyBody = document.getElementById('history-body');
+
+historyToggle.addEventListener('click', function() {
+    historyBody.classList.toggle('open');
+    historyToggle.textContent = historyBody.classList.contains('open') ? '[-]' : '[+]';
+});
